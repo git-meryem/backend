@@ -1,12 +1,12 @@
 package org.example.backend.Entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Setter
+@Getter
 @Table(name = "employees")
 public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,6 @@ public class Employee {
     @Column(name = "last_name")
     private String lastname;
 
-    @Column(name="email_id" , nullable = false)
+    @Column(name="email_id" , nullable = false , unique = true)
     private String email;
 }
